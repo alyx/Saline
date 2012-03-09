@@ -52,5 +52,7 @@ accept_client(
     client->ip.real = addr.sin_addr.s_addr;
     client->fd = new;
     client->local = true;
+
+    mowgli_free(addr);
 }
 
