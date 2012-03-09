@@ -42,7 +42,7 @@ accept_client(
     client->socket->io = mowgli_pollable_create(loop, new, client);
     mowgli_pollable_set_nonblocking(client->socket->io, true);
 
-    client->uid = genid();
+    uid_get(client->uid);
     client->fd = new;
     client->local = true;
 }
