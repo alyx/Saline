@@ -5,7 +5,7 @@
 
 typedef struct
 {
-    char uid[10];
+    char uid[9];
 
     char * nick;
     char * user;
