@@ -26,6 +26,20 @@ typedef struct
     char * chans[];
 
     bool local;
+    time_t last;
+
+    struct
+    {
+        time_t left;
+        char * reason;
+    } away;
+
+    struct
+    {
+        int real;
+        char * mangled;
+    } ip;
+
 } irc_user_t;
 
 #endif /* __SALINE_CLIENT_H */

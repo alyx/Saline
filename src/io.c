@@ -32,6 +32,10 @@ accept_client(
     mowgli_eventloop_pollable_t * poll = mowgli_eventloop_io_pollable(io);
     irc_client_t * client;
     mowgli_descriptor_t new, listen;
+    struct sockaddr * addr;
+    socklen_t * len;
+
+    addr = mowgli_alloc(sizeof(struct sockaddr));
 
     listen = poll->fd;
 
@@ -42,7 +46,10 @@ accept_client(
     client->socket->io = mowgli_pollable_create(loop, new, client);
     mowgli_pollable_set_nonblocking(client->socket->io, true);
 
+    getsockname(new, addr, len);
+
     uid_get(client->uid);
+    client->ip.real = addr.sin_addr.s_addr;
     client->fd = new;
     client->local = true;
 }
