@@ -38,6 +38,7 @@ typedef struct
     {
         int real;
         char * mangled;
+        char * vhost;
     } ip;
 
 } irc_user_t;
