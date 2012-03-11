@@ -1,4 +1,4 @@
-static mowgli_eventloop_t * ioloop;
+mowgli_eventloop_t * ioloop;
 static mowgli_eventloop_pollable_t * listener;
 
 mowgli_descriptor_t serve(unsigned int port)
@@ -52,6 +52,8 @@ accept_client(
     client->ip.real = addr.sin_addr.s_addr;
     client->fd = new;
     client->local = true;
+
+    mowgli_timer_add_once(loop, "new conn: " client->uid, client_timeout, client, 60);
 
     mowgli_free(addr);
 }

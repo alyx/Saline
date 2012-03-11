@@ -1,5 +1,14 @@
 static char current_uid[9];
 
+void client_timeout(void * userdata)
+{
+    irc_client_t * client;
+    client = (irc_client_t *)userdata;
+
+    close(client->fd);
+    mowgli_pollable_destroy(ioloop, client->io);
+}
+
 /* UID generation code shamelessly borrowed from ircd-ratbox */
 void init_uid(void)
 {
