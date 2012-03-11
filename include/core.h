@@ -1,19 +1,24 @@
+#ifndef __CORE_H
+#define __CORE_H
+
 /* Core channel modes */
 enum {
-    CHANNEL_PRIVATE    =  0x00000001,
-    CHANNEL_SECRET     =  0x00000002,
-    CHANNEL_INVITE     =  0x00000003,
-    CHANNEL_TOPICLOCK  =  0x00000004,
-    CHANNEL_NOOUTSIDE  =  0x00000005,
-    CHANNEL_MODERATED  =  0x00000006,
-    CHANNEL_LIMIT      =  0x00000007,
-    CHANNEL_KEY        =  0x00000008
+    CHANNEL_PRIVATE    =  0x2,
+    CHANNEL_SECRET     =  0x4,
+    CHANNEL_INVITE     =  0x8,
+    CHANNEL_TOPICLOCK  =  0x20,
+    CHANNEL_NOOUTSIDE  =  0x40,
+    CHANNEL_MODERATED  =  0x80,
+    CHANNEL_LIMIT      =  0x200,
+    CHANNEL_KEY        =  0x400
 };
 
 /* Core user modes */
 enum {
-    USER_INVISIBLE  =  0x00000001,
-    USER_SNOTICE    =  0x00000002,
-    USER_WALLOPS    =  0x00000003,
-    USER_OPERATOR   =  0x00000004
+    USER_INVISIBLE  =  0x2,
+    USER_SNOTICE    =  0x4,
+    USER_WALLOPS    =  0x8,
+    USER_OPERATOR   =  0x20
 };
+
+#endif /* __CORE_H */
