@@ -22,8 +22,7 @@ typedef struct
         mowgli_descriptor_t fd;
     } socket;
 
-    size_t nchans;
-    char * chans[];
+    mowgli_list_t chans;
 
     bool local;
     time_t last;
